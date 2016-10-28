@@ -1,0 +1,22 @@
+#Based on github docs
+git config --global user.name "kk-taqi"
+git config --global user.email "rizki.nix@gmail.com"
+
+#add ssh-keygen in local box
+ssh-keygen -t rsa -b 4096 -C "rizki.nix@gmail.com"
+   
+#add key to ssh-agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+
+#add new ssh keygen on github account dashboard by copy-paste ~/.ssh/id_rsa.pub
+
+#add some files to github   
+git add README install_docker.sh
+   
+#perform 1st commit
+git commit -m "1st commit: README, install_docker.sh"
+   
+git remote add origin git@github.com:kk-taqi/notepad.git
+
+git push origin master
